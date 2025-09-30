@@ -27,11 +27,36 @@ public:
 
     // Insert at the end
     void displayAll() {
-
+        Node* temp = head;
+        cout << endl;
+        while(temp != nullptr)
+        {
+            cout << temp->data << endl;
+            temp = temp->next;
+        }
+        cout << endl;
     }
 
     // Insert at the end
     void append(int val) {
+        Node* newnode = new Node(val);
+        if (head == nullptr)
+        {
+            head = newnode;
+            newnode->prev = nullptr;
+            newnode->next = nullptr;
+        }
+        else
+        {
+            Node* temp = head;
+            while (temp->next != nullptr)
+            {
+                temp = temp->next;
+            }
+            temp->next = newnode;
+            newnode->prev = temp;
+            newnode->next = nullptr;
+        }
 
     }
 
