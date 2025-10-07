@@ -62,7 +62,33 @@ public:
 
     // Insert at the front
     void prepend(int val) {
+  Node* newnode = new Node(val);
 
+        if (head == nullptr)
+
+        {
+
+            head = newnode;
+
+            newnode->prev = nullptr;
+
+            newnode->next = nullptr;
+
+        }
+
+        else
+
+        {
+
+            newnode->next = head;
+
+            head->prev = newnode;
+
+            head = newnode;
+
+            newnode->prev = nullptr;
+
+        }
     }
 
     // Insert between first and last, at possition pos
